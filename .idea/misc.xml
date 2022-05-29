@@ -4,7 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/font/poppins.xml" value="0.21197916666666666" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.23703703703703705" />
+        <entry key="app/src/main/res/menu/bottom_nav.xml" value="0.35520833333333335" />
       </map>
     </option>
   </component>
