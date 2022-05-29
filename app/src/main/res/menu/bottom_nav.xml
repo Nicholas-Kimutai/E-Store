@@ -10,6 +10,13 @@
         android:icon="@drawable/ic_search"
         android:title="Search"/>
 
+    <item
+        android:id="@+id/nav_user"
+        android:icon="@drawable/ic_user"
+        android:title="My E-Store"/>
+
+
+
 
 
 </menu>
