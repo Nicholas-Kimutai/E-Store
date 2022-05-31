@@ -20,8 +20,5 @@
         android:icon="@drawable/ic_cart"
         android:title="Cart"/>
 
-
-
-
-
 </menu>
+

@@ -18,10 +18,10 @@
         />
 
     <ImageView
-       android:id="@+id/image"
+        android:id="@+id/image"
         android:layout_width="350dp"
-        android:layout_marginTop="27dp"
-        android:layout_height="150dp"/>
+        android:layout_height="150dp"
+        android:layout_marginTop="27dp" />
 
     <Button
         android:id="@+id/details"
@@ -31,7 +31,9 @@
         android:layout_alignBottom="@id/image"
         android:layout_marginLeft="100dp"
         android:text="View Products"
-        android:textColor="@color/purple_700"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:textSize="10sp" />
+
 
 </RelativeLayout>

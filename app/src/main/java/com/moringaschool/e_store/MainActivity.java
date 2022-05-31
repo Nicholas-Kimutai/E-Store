@@ -37,37 +37,37 @@ public class MainActivity extends AppCompatActivity {
        CategoriesAdapter categoriesAdapter =new CategoriesAdapter(this, R.layout.list_row, arrayList);
        listView.setAdapter(categoriesAdapter);
 
-        //BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
-        //bottomNav.setOnNavigationItemSelectedListener(navListener);
+       BottomNavigationView bottomNav = findViewById(R.id.bottomNavigationView);
+       bottomNav.setOnNavigationItemSelectedListener(navListener);
     }
 
-// private BottomNavigationView.OnNavigationItemSelectedListener navListener=
-//            new BottomNavigationView.OnNavigationItemSelectedListener() {
-//                @Override
-//                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                    Fragment selectedFragment=null;
-//
-//                    switch (item.getItemId()){
-//                        case R.id.nav_home:
-//                            selectedFragment=new HomeFragment();
-//                            break;
-//
-//                        case R.id.nav_search:
-//                            selectedFragment=new SearchFragment();
-//                            break;
-//
-//                        case R.id.nav_user:
-//                            selectedFragment=new UserFragment();
-//                            break;
-//
-//                        case R.id.nav_cart:
-//                            selectedFragment=new CartFragment();
-//                            break;
-//                    }
-//
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                            selectedFragment).commit();
-//                    return true;
-//                }
-//            };
+ private BottomNavigationView.OnNavigationItemSelectedListener navListener=
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Fragment selectedFragment=null;
+
+                    switch (item.getItemId()){
+                        case R.id.nav_home:
+                            selectedFragment=new HomeFragment();
+                            break;
+
+                        case R.id.nav_search:
+                            selectedFragment=new SearchFragment();
+                            break;
+
+                        case R.id.nav_user:
+                            selectedFragment=new UserFragment();
+                            break;
+
+                        case R.id.nav_cart:
+                            selectedFragment=new CartFragment();
+                            break;
+                    }
+
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,
+                            selectedFragment).commit();
+                    return true;
+                }
+            };
 }
