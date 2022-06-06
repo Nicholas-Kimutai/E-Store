@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Order">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:text="MAKE ORDER"
+            android:textColor="@color/purple_700"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/userName"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:background="@color/white"
+            android:hint="Name"
+            android:inputType="text"
+            android:paddingLeft="20dp" />
+
+        <EditText
+            android:id="@+id/userEmail"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:background="@color/white"
+            android:hint="Email"
+            android:inputType="text"
+            android:paddingLeft="20dp" />
+
+        <EditText
+            android:id="@+id/userLocation"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="200dp"
+            android:background="@color/white"
+            android:hint="Location"
+            android:inputType="text"
+            android:paddingLeft="20dp" />
+
+        <EditText
+            android:id="@+id/phoneNumber"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="250dp"
+            android:background="@color/white"
+            android:hint="Phone Number"
+            android:inputType="number"
+            android:paddingLeft="20dp" />
+
+        <Button
+            android:id="@+id/confirmButton"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="315dp"
+            android:background="@color/purple_700"
+            android:text="Confirm"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

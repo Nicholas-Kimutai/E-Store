@@ -4,38 +4,50 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
-import java.util.ArrayList;
-
-public class CategoriesAdapter extends ArrayAdapter<Categories> {
+public class CategoriesAdapter extends BaseAdapter {
     private Context mContext;
-    private int mResource;
-    public CategoriesAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Categories> objects) {
-        super(context, resource, objects);
-        this.mContext=context;
-        this.mResource = resource;
+    private LayoutInflater inflater;
+    private String[] categories;
 
+
+    public CategoriesAdapter(Context mContext, String[] categories) {
+        this.mContext = mContext;
+        this.categories = categories;
     }
 
-    @NonNull
+
+
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        LayoutInflater layoutInflater=LayoutInflater.from(mContext);
-        convertView = layoutInflater.inflate(mResource, parent, false);
+    public int getCount() {
+        return categories.length;
+    }
 
-        ImageView imageView = convertView.findViewById(R.id.image);
-        TextView categoriesTitle =convertView.findViewById(R.id.categoriesTitle);
+    @Override
+    public Object getItem(int position) {
+        return categories[position];
+    }
 
-        imageView.setImageResource(getItem(position).getImage());
-        categoriesTitle.setText(getItem(position).getTittle());
+    @Override
+    public long getItemId(int position) {
+        return 0;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if (inflater == null) {
+            inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        }
+        if (convertView == null) {
+            convertView = inflater.inflate(R.layout.activity_products_view, null);
+        }
+
+        TextView categoriesTitle = convertView.findViewById(R.id.categoriesTitle);
+        categoriesTitle.setText(categories[position]);
         return convertView;
-
     }
 }
 
