@@ -14,16 +14,16 @@
         android:theme="@style/Theme.EStore"
         tools:targetApi="31">
         <activity
-            android:name=".Order"
+            android:name=".ui.Order"
             android:exported="false" />
         <activity
-            android:name=".ProductDetails"
+            android:name=".ui.ProductDetails"
             android:exported="false" />
         <activity
-            android:name=".ProductsView"
+            android:name=".ui.ProductsView"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

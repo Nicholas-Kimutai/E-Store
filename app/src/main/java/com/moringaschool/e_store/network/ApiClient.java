@@ -1,4 +1,6 @@
-package com.moringaschool.e_store;
+package com.moringaschool.e_store.network;
+
+import com.moringaschool.e_store.network.ApiInterface;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

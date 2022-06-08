@@ -1,4 +1,4 @@
-package com.moringaschool.e_store;
+package com.moringaschool.e_store.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.moringaschool.e_store.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

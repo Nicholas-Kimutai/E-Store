@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProductsView">
+    tools:context=".ui.ProductsView">
 
         <TextView
             android:id="@+id/categoriesTitle"

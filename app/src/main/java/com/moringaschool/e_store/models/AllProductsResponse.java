@@ -1,9 +1,10 @@
 
-package com.moringaschool.e_store;
+package com.moringaschool.e_store.models;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.moringaschool.e_store.models.Rating;
 
 @Generated("jsonschema2pojo")
 public class AllProductsResponse {

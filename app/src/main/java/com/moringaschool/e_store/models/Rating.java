@@ -1,5 +1,5 @@
 
-package com.moringaschool.e_store;
+package com.moringaschool.e_store.models;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
