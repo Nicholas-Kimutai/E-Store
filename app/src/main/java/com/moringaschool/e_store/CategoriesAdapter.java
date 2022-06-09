@@ -5,7 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.moringaschool.e_store.models.AllProductsResponse;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -13,10 +17,10 @@ import java.util.List;
 public class CategoriesAdapter extends BaseAdapter {
     private Context mContext;
     private LayoutInflater inflater;
-    private List<mList>products;
+    private String products;
 
 
-    public CategoriesAdapter(Context mContext, List<mList>products) {
+    public CategoriesAdapter(Context mContext, String products) {
         this.mContext = mContext;
         this.products = products;
     }
@@ -46,10 +50,11 @@ public class CategoriesAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.activity_products_view, null);
         }
-
+        ImageView productImage = convertView.findViewById(R.id.image);
         TextView categoriesTitle = convertView.findViewById(R.id.categoriesTitle);
-        Picasso.get().load(products.get(position).getImage().getUrl()).into(productImage);
-        categoriesTitle.setText(mList[position]);
+
+        //Picasso.get().load(products.get(position).getImage().getUrl()).into(productImage);
+        //categoriesTitle.setText(products.get(position).getName());
         return convertView;
     }
 }

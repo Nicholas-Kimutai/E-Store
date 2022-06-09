@@ -47,10 +47,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                 if(response.isSuccessful()){
                     String mList  = response.body().getCategory();
-                CategoriesAdapter adapter = new CategoriesAdapter(MainActivity.this, response.body().getCategory());
+                CategoriesAdapter adapter = new CategoriesAdapter(MainActivity.this, response.body().getTitle());
                 listView.setAdapter(adapter);
                 listView.setVisibility(View.VISIBLE);
-
 
             }
 
