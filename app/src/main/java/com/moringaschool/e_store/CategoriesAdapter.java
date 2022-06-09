@@ -7,28 +7,30 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.List;
+
 
 public class CategoriesAdapter extends BaseAdapter {
     private Context mContext;
     private LayoutInflater inflater;
-    private String[] categories;
+    private List<mList>products;
 
 
-    public CategoriesAdapter(Context mContext, String[] categories) {
+    public CategoriesAdapter(Context mContext, List<mList>products) {
         this.mContext = mContext;
-        this.categories = categories;
+        this.products = products;
     }
 
 
 
     @Override
     public int getCount() {
-        return categories.length;
+        return products.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return categories[position];
+        return products.get(position);
     }
 
     @Override
@@ -46,7 +48,8 @@ public class CategoriesAdapter extends BaseAdapter {
         }
 
         TextView categoriesTitle = convertView.findViewById(R.id.categoriesTitle);
-        categoriesTitle.setText(categories[position]);
+        Picasso.get().load(products.get(position).getImage().getUrl()).into(productImage);
+        categoriesTitle.setText(mList[position]);
         return convertView;
     }
 }

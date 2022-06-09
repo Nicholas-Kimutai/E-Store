@@ -26,29 +26,5 @@ public class ProductsView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products_view);
 
-        ApiInterface client = ApiClient.getClient();
-        Call<AllProductsResponse> call = client.getProducts();
-        call.enqueue(new Callback<AllProductsResponse>() {
-            @Override
-            public void onResponse(Call<AllProductsResponse> call, Response<AllProductsResponse> response) {
-                if(response.isSuccessful()){
-                    products = response.body();
-                    mAdapter = new SalesListAdapter(sales,SalesActivity.this);
-                    mRecyclerView.setAdapter(mAdapter);
-                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(SalesActivity.this);
-                    mRecyclerView.setLayoutManager(layoutManager);
-                    mRecyclerView.setHasFixedSize(true);
-                    showSales();
-                }else{
-                    showUnsuccessfulMessage();
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<AllProductsResponse> call, Throwable t) {
-
-            }
-        });
     }
 }
