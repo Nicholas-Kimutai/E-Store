@@ -14,9 +14,11 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.moringaschool.e_store.CartFragment;
 import com.moringaschool.e_store.CategoriesAdapter;
 import com.moringaschool.e_store.HomeFragment;
 import com.moringaschool.e_store.R;
+import com.moringaschool.e_store.UsersFragment;
 import com.moringaschool.e_store.models.AllProductsResponse;
 import com.moringaschool.e_store.network.ApiClient;
 import com.moringaschool.e_store.network.ApiInterface;
@@ -29,7 +31,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class MainActivity extends AppCompatActivity {
     @BindView(R.id.listView)
     ListView listView;
     List<AllProductsResponse>mList;
@@ -40,11 +42,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        listView.setOnItemClickListener(this);
-        listView.setVisibility(View.VISIBLE);
+//        listView.setOnItemClickListener(
+//        listView.setVisibility(View.VISIBLE);
 
 
-        BottomNavigationView bottomNav = findViewById(R.id.bottomNav;
+        BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
 
@@ -103,12 +105,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             };
 
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(this, "You clicked " + mList.get(position), Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(MainActivity.this, ProductDetails.class);
-        intent.putExtra("category", (Parcelable) mList.get(position));
-        startActivity(intent);
-    }
+//    @Override
+//    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//        Toast.makeText(this, "You clicked " + mList.get(position), Toast.LENGTH_SHORT).show();
+//        Intent intent = new Intent(MainActivity.this, ProductDetails.class);
+//        intent.putExtra("category", (Parcelable) mList.get(position));
+//        startActivity(intent);
+//    }
 }
 

@@ -1,4 +1,6 @@
 package com.moringaschool.e_store;
 
-public class UsersFragment {
+import androidx.fragment.app.Fragment;
+
+public class UsersFragment extends Fragment {
 }

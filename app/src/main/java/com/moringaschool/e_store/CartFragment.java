@@ -1,4 +1,6 @@
 package com.moringaschool.e_store;
 
-public class CartFragment {
+import androidx.fragment.app.Fragment;
+
+public class CartFragment extends Fragment {
 }
