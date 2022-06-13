@@ -69,6 +69,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 <com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/bottomNav"
     android:layout_width="match_parent"
     android:layout_height="55dp"
     app:layout_constraintBottom_toBottomOf="parent"
