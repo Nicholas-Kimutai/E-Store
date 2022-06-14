@@ -17,6 +17,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+import com.moringaschool.e_store.models.User;
 import com.moringaschool.e_store.ui.Order;
 import com.moringaschool.e_store.ui.ProductDetails;
 
@@ -36,12 +38,13 @@ public class RegistrationActivity extends AppCompatActivity {
     EditText password;
 
     FirebaseAuth auth;
+    FirebaseDatabase database;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         auth = FirebaseAuth.getInstance();
-
+        database=FirebaseDatabase.getInstance();
         ButterKnife.bind(this);
         signInReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +90,11 @@ public class RegistrationActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
+
+                            User user= new User(userName,userEmail,userPassword);
+                            String id=task.getResult().getUser().getUid();
+                            database.getReference().child("Users").child(id).setValue(user);
+
                             Toast.makeText(RegistrationActivity.this, "Sign-up successful", Toast.LENGTH_SHORT).show();
                         }
                         else{
