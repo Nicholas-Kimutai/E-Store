@@ -1,17 +1,17 @@
-package com.moringaschool.e_store;
-
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.moringaschool.e_store.models.AllProductsResponse;
-import com.squareup.picasso.Picasso;
-
-import java.util.List;
+//package com.moringaschool.e_store;
+//
+//import android.content.Context;
+//import android.view.LayoutInflater;
+//import android.view.View;
+//import android.view.ViewGroup;
+//import android.widget.BaseAdapter;
+//import android.widget.ImageView;
+//import android.widget.TextView;
+//
+//import com.moringaschool.e_store.models.AllProductsResponse;
+//import com.squareup.picasso.Picasso;
+//
+//import java.util.List;
 
 
 //public class CategoriesAdapter extends BaseAdapter {
