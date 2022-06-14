@@ -11,13 +11,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.moringaschool.e_store.CartFragment;
-import com.moringaschool.e_store.CategoriesAdapter;
 import com.moringaschool.e_store.HomeFragment;
+import com.moringaschool.e_store.LoginActivity;
 import com.moringaschool.e_store.R;
+import com.moringaschool.e_store.RegistrationActivity;
 import com.moringaschool.e_store.UsersFragment;
 import com.moringaschool.e_store.models.AllProductsResponse;
 import com.moringaschool.e_store.network.ApiClient;
@@ -32,9 +33,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    @BindView(R.id.listView)
-    ListView listView;
-    List<AllProductsResponse>mList;
+ @BindView(R.id.signupSelect)
+    TextView signup;
+
+ @BindView(R.id.loginSelect)
+ TextView login;
+//    List<AllProductsResponse>mList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +46,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
+            }
+        });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            }
+        });
+
 //        listView.setOnItemClickListener(
 //        listView.setVisibility(View.VISIBLE);
 
 
-        BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
-        bottomNav.setOnNavigationItemSelectedListener(navListener);
+//        BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
+//        bottomNav.setOnNavigationItemSelectedListener(navListener);
 
 
 
@@ -78,31 +95,31 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener navListener=
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Fragment selectedFragment=null;
-
-                    switch (item.getItemId()){
-                        case R.id.nav_home:
-                            selectedFragment=new HomeFragment();
-                            break;
-
-                        case R.id.nav_user:
-                            selectedFragment=new UsersFragment();
-                            break;
-
-                        case R.id.nav_cart:
-                            selectedFragment=new CartFragment();
-                            break;
-                    }
-
-                    getSupportFragmentManager().beginTransaction().replace(R.id.listView,
-                            selectedFragment).commit();
-                    return true;
-                }
-            };
+//    private BottomNavigationView.OnNavigationItemSelectedListener navListener=
+//            new BottomNavigationView.OnNavigationItemSelectedListener() {
+//                @Override
+//                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                    Fragment selectedFragment=null;
+//
+//                    switch (item.getItemId()){
+//                        case R.id.nav_home:
+//                            selectedFragment=new HomeFragment();
+//                            break;
+//
+//                        case R.id.nav_cart:
+//                            selectedFragment=new CartFragment();
+//                            break;
+//                    }
+//
+//                    getSupportFragmentManager().beginTransaction().replace(R.id.listV
+//
+//                        case R.id.nav_user:
+//                            selectedFragment=new UsersFragment();
+//                            break;iew,
+//                            selectedFragment).commit();
+//                    return true;
+//                }
+//            };
 
 
 //    @Override
