@@ -95,7 +95,6 @@
         app:layout_constraintVertical_bias=".2" />
 
     <TextView
-        android:clickable="true"
         android:id="@+id/signIn_reg"
         android:textAllCaps="false"
         android:layout_width="wrap_content"

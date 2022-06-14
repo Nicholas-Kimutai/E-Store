@@ -17,10 +17,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class RegistrationActivity extends AppCompatActivity {
-    @BindView(R.id.signUp)
-    Button signUp;
+    @BindView(R.id.signUpButton)
+    Button SignUp;
     @BindView(R.id.signIn_reg)
-    TextView signIn;
+    TextView signInReg;
     @BindView(R.id.name)
     EditText name;
     @BindView(R.id.email_reg)
@@ -32,23 +32,13 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        //ButterKnife.bind(this);
-        //signIn.setOnClickListener(this);
-       // Intent intent = getIntent();
-
-//        signIn.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//                startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
-//            }
-//        });
+        ButterKnife.bind(this);
+        signInReg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
-
-//    @Override
-//    public void onClick(View v) {
-//        if (v == signIn) {
-//            Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
-//            startActivity(intent);
-//        }
-//    }
 }
