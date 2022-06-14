@@ -23,9 +23,8 @@
         android:layout_width="0dp"
         android:layout_marginTop="20dp"
         android:layout_height="wrap_content"
-        android:text="Name"
+        android:hint="Name"
         android:textColor="#888886"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@drawable/edittext_background"
@@ -37,10 +36,10 @@
         app:layout_constraintTop_toBottomOf="@id/signUpImage" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/email_reg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Email"
+        android:hint="Email"
         android:textColor="#888886"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,10 +53,10 @@
         app:layout_constraintTop_toBottomOf="@id/name" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/password_reg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Password"
+        android:hint="Password"
         android:textColor="#888886"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +67,7 @@
         app:layout_constraintWidth_percent=".8"
         android:drawableLeft="@drawable/ic_password"
         android:drawablePadding="10dp"
-        app:layout_constraintTop_toBottomOf="@id/email" />
+        app:layout_constraintTop_toBottomOf="@id/email_reg" />
     
     <Button
        android:id="@+id/signUpButton"
@@ -80,7 +79,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password"
+        app:layout_constraintTop_toBottomOf="@id/password_reg"
         android:layout_marginTop="20dp"/>
 
     <TextView
@@ -96,7 +95,9 @@
         app:layout_constraintVertical_bias=".2" />
 
     <TextView
-        android:id="@+id/signIn"
+        android:clickable="true"
+        android:id="@+id/signIn_reg"
+        android:textAllCaps="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign In"
