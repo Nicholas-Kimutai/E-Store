@@ -1,5 +1,6 @@
 package com.moringaschool.e_store;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,6 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.moringaschool.e_store.ui.Order;
 import com.moringaschool.e_store.ui.ProductDetails;
@@ -76,5 +80,20 @@ public class RegistrationActivity extends AppCompatActivity {
             Toast.makeText(this, "Password must have a minimum of 6 letters!", Toast.LENGTH_SHORT).show();
         return;
         }
+
+        //Create User
+        auth.createUserWithEmailAndPassword(userEmail,userPassword)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            Toast.makeText(RegistrationActivity.this, "Sign-up successful", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            Toast.makeText(RegistrationActivity.this, "Error", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                });
     }
 }
