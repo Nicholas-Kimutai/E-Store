@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "6608250653",
+    "project_id": "e-store-9e74b",
+    "storage_bucket": "e-store-9e74b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6608250653:android:1e2acd7cd32360db26a3f4",
+        "android_client_info": {
+          "package_name": "com.moringaschool.e_store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6608250653-tumlenqi0bdseek6uel1rh49snrribsa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moringaschool.e_store",
+            "certificate_hash": "d49a09f860421eedf700a762fe555335f151187f"
+          }
+        },
+        {
+          "client_id": "6608250653-54v5n46kgqeakhi12q4lk1u1o96sgatb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVhS1KIMS4h6Dwpj9olgMeA2lRQY7DpaM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "6608250653-54v5n46kgqeakhi12q4lk1u1o96sgatb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
