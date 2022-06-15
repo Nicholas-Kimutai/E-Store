@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,7 +37,8 @@ public class RegistrationActivity extends AppCompatActivity {
     EditText email;
     @BindView(R.id.password_reg)
     EditText password;
-
+    @BindView(R.id.progressbar)
+    ProgressBar progressbar;
     FirebaseAuth auth;
     FirebaseDatabase database;
     @Override
@@ -45,6 +47,8 @@ public class RegistrationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registration);
         auth = FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();
+
+        progressbar.setVisibility(View.GONE);
         ButterKnife.bind(this);
         signInReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +62,7 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 createUser();
+                progressbar.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -94,10 +99,12 @@ public class RegistrationActivity extends AppCompatActivity {
                             User user= new User(userName,userEmail,userPassword);
                             String id=task.getResult().getUser().getUid();
                             database.getReference().child("Users").child(id).setValue(user);
+                            progressbar.setVisibility(View.GONE);
 
                             Toast.makeText(RegistrationActivity.this, "Sign-up successful", Toast.LENGTH_SHORT).show();
                         }
                         else{
+                            progressbar.setVisibility(View.GONE);
                             Toast.makeText(RegistrationActivity.this, "Error", Toast.LENGTH_SHORT).show();
 
                         }
