@@ -37,7 +37,6 @@ public class RegistrationActivity extends AppCompatActivity {
     EditText email;
     @BindView(R.id.password_reg)
     EditText password;
-    @BindView(R.id.progressbar)
     ProgressBar progressbar;
     FirebaseAuth auth;
     FirebaseDatabase database;
@@ -45,10 +44,13 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+
         auth = FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();
 
+        progressbar=findViewById(R.id.progressbar);
         progressbar.setVisibility(View.GONE);
+
         ButterKnife.bind(this);
         signInReg.setOnClickListener(new View.OnClickListener() {
             @Override

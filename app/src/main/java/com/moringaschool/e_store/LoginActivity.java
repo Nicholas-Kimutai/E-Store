@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,13 +30,18 @@ public class LoginActivity extends AppCompatActivity {
     EditText email;
     @BindView(R.id.password_login)
     EditText password;
-
+    ProgressBar progressbar;
     FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+
+        auth = FirebaseAuth.getInstance();
+
+        progressbar=findViewById(R.id.progressbar);
+        progressbar.setVisibility(View.GONE);
         signUpLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,9 +82,12 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            progressbar.setVisibility(View.GONE);
+
                             Toast.makeText(LoginActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
                         }
                         else{
+                            progressbar.setVisibility(View.GONE);
                             Toast.makeText(LoginActivity.this,"Error"+task.isSuccessful(),Toast.LENGTH_SHORT).show();
                         }
                     }
