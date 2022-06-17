@@ -19,7 +19,10 @@
         <entry key="app/src/main/res/layout/fragment_user.xml" value="0.18177083333333333" />
         <entry key="app/src/main/res/layout/home_fragment.xml" value="0.18072916666666666" />
         <entry key="app/src/main/res/layout/home_xml.xml" value="0.4148418491484185" />
+        <entry key="app/src/main/res/layout/item.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/item_view_pager_header_shimmer.xml" value="0.333786231884058" />
         <entry key="app/src/main/res/layout/list_row.xml" value="0.333786231884058" />
+        <entry key="app/src/main/res/layout/products_holder.xml" value="0.333786231884058" />
         <entry key="app/src/main/res/layout/users_fragment.xml" value="0.18072916666666666" />
         <entry key="app/src/main/res/menu/bottom_nav.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/menu/search_bar.xml" value="0.26145833333333335" />

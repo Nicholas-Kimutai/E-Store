@@ -31,7 +31,7 @@ Happy coding!
 ## Technologies
 * Java
 * Xml
-
+* Firebase
 
 
 ## Author Info

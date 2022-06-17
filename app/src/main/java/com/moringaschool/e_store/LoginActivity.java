@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.moringaschool.e_store.ui.ProductsView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -53,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loginUser();
+                progressbar.setVisibility(View.VISIBLE);
             }
         });
 
@@ -85,6 +87,8 @@ public class LoginActivity extends AppCompatActivity {
                             progressbar.setVisibility(View.GONE);
 
                             Toast.makeText(LoginActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(LoginActivity.this, ProductsView.class);
+                            startActivity(intent);
                         }
                         else{
                             progressbar.setVisibility(View.GONE);

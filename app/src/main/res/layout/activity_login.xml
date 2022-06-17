@@ -43,6 +43,7 @@
       android:layout_height="wrap_content"
       android:hint="Password"
       android:textColor="#888886"
+      android:inputType="textPassword"
       android:layout_marginTop="20dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
