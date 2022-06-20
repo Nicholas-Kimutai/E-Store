@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.moringaschool.e_store.Adapters.ProductsAdapter;
@@ -27,6 +29,7 @@ public class ProductsView extends AppCompatActivity {
 
 
     private RecyclerView recyclerView;
+    private SearchView searchView;
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
     List<AllProductsResponse> allProductsResponseList;
@@ -35,6 +38,7 @@ public class ProductsView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products_view);
+
 
         recyclerView=findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
@@ -63,4 +67,9 @@ public class ProductsView extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.logoutmenu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 }

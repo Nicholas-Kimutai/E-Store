@@ -22,11 +22,11 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.AllPro
     List<AllProductsResponse> allProductsResponseList;
     Context context;
 
+
     public ProductsAdapter(Context context, List<AllProductsResponse> productsResponses){
         this.context=context;
         allProductsResponseList=productsResponses;
     }
-
 
     @NonNull
     @Override

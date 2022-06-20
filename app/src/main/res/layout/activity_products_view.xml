@@ -22,7 +22,7 @@
             android:drawableLeft="@drawable/ic_baseline_search_24"
             android:drawablePadding="5dp"
             android:hint="Search Your product here..."/>
-        
+
         <LinearLayout
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
