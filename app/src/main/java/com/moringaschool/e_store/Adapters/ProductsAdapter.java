@@ -1,6 +1,7 @@
 package com.moringaschool.e_store.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,16 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringaschool.e_store.R;
 import com.moringaschool.e_store.models.AllProductsResponse;
+import com.moringaschool.e_store.ui.ProductDetails;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.AllProductsResponseViewHolder> {
-
     List<AllProductsResponse> allProductsResponseList;
     Context context;
 
-    public ProductsAdapter(Context context,List<AllProductsResponse>productsResponses){
+    public ProductsAdapter(Context context, List<AllProductsResponse> productsResponses){
         this.context=context;
         allProductsResponseList=productsResponses;
     }
@@ -41,10 +42,18 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.AllPro
         Picasso.get().load(allProductsResponse.getImage()).into(holder.image);
         holder.title.setText(allProductsResponse.getTitle());
         holder.category.setText(allProductsResponse.getCategory());
-       // holder.rating.setText(allProductsResponse.getRating());
+        //holder.description.setText(allProductsResponse.getDescription());
        // holder.price.setText(allProductsResponse.getPrice());
 
-
+     holder.itemView.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+            AllProductsResponse allProductsResponse=allProductsResponseList.get(holder.getAdapterPosition());
+             Intent intent=new Intent(context, ProductDetails.class);
+             //intent.putExtra("detail", allProductsResponse);
+             context.startActivity(intent);
+         }
+     });
     }
 
     @Override
@@ -54,7 +63,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.AllPro
 
     public class AllProductsResponseViewHolder extends RecyclerView.ViewHolder{
         ImageView image;
-        TextView title,category, rating, price;
+        TextView title,category,description, rating, price;
 
         public AllProductsResponseViewHolder(@NonNull View itemView) {
             super(itemView);

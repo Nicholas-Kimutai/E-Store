@@ -1,17 +1,19 @@
 package com.moringaschool.e_store.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.moringaschool.e_store.Adapters.ProductsAdapter;
 import com.moringaschool.e_store.R;
 import com.moringaschool.e_store.models.AllProductsResponse;
-import com.moringaschool.e_store.models.Rating;
 import com.moringaschool.e_store.network.ApiClient;
 import com.moringaschool.e_store.network.ApiInterface;
 
@@ -23,8 +25,11 @@ import retrofit2.Response;
 
 public class ProductsView extends AppCompatActivity {
 
-    List<AllProductsResponse> allProductsResponseList;
+
     private RecyclerView recyclerView;
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+    List<AllProductsResponse> allProductsResponseList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +38,7 @@ public class ProductsView extends AppCompatActivity {
 
         recyclerView=findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
 
 
         ApiInterface client = ApiClient.getClient();
@@ -56,8 +61,6 @@ public class ProductsView extends AppCompatActivity {
             }
         });
 
-
-
-
     }
+
 }

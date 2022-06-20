@@ -5,8 +5,10 @@ import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 @Generated("jsonschema2pojo")
-public class AllProductsResponse {
+public class AllProductsResponse implements Serializable {
 
     @SerializedName("id")
     @Expose
