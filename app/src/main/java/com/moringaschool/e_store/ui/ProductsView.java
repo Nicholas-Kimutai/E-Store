@@ -18,17 +18,19 @@ import android.widget.Toast;
 
 import com.moringaschool.e_store.Adapters.ProductsAdapter;
 import com.moringaschool.e_store.R;
+import com.moringaschool.e_store.SelectListener;
 import com.moringaschool.e_store.models.AllProductsResponse;
 import com.moringaschool.e_store.network.ApiClient;
 import com.moringaschool.e_store.network.ApiInterface;
 
+import java.io.Serializable;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProductsView extends AppCompatActivity {
+public class ProductsView extends AppCompatActivity implements SelectListener {
 
 
     private RecyclerView recyclerView;
@@ -98,5 +100,13 @@ public class ProductsView extends AppCompatActivity {
     }
 
     private void logoutUser() {
+    }
+
+    @Override
+    public void OnProductsClicked(AllProductsResponse productsResponse) {
+        startActivity(new Intent(ProductsView.this, ProductDetails.class)
+                .putExtra("data", (Serializable) allProductsResponseList));
+
+
     }
 }

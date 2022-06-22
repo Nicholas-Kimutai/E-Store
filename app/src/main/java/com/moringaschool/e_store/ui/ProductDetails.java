@@ -31,30 +31,21 @@ AllProductsResponse allProductsResponse = null;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
 
-
         ButterKnife.bind(this);
-        final Object object = getIntent().getSerializableExtra("description");
-        if (object instanceof AllProductsResponse){
-            allProductsResponse=(AllProductsResponse) object;
-
-        }
-
-        //descriptionImage=findViewById(R.id.imageView2);
-        //productname=findViewById(R.id.textView5);
+        descriptionImage=findViewById(R.id.imageView2);
+        productname=findViewById(R.id.textView5);
         producDescription=findViewById(R.id.textView2);
 
-        if(allProductsResponse !=null){
-            //Picasso.get().load(allProductsResponse.getImage()).into(descriptionImage);
-            //productname.setText(allProductsResponse.getTitle());
-           producDescription.setText(allProductsResponse.getDescription());
+        allProductsResponse=(AllProductsResponse) getIntent().getSerializableExtra("data");
 
-        }
+        Picasso.get().load(allProductsResponse.getImage()).into(descriptionImage);
+        productname.setText(allProductsResponse.getTitle());
+        producDescription.setText(allProductsResponse.getDescription());
 
 
         ButterKnife.bind(this);
         backArrow.setOnClickListener(this);
         orderButton.setOnClickListener(this);
-
     }
 
     @Override

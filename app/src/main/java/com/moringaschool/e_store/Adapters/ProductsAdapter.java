@@ -12,20 +12,25 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringaschool.e_store.R;
+import com.moringaschool.e_store.SelectListener;
 import com.moringaschool.e_store.models.AllProductsResponse;
 import com.moringaschool.e_store.ui.ProductDetails;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import retrofit2.Callback;
+
 public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.AllProductsResponseViewHolder> {
-    List<AllProductsResponse> allProductsResponseList;
+   private List<AllProductsResponse> allProductsResponse;
     Context context;
+    //private SelectListener listener;
 
 
-    public ProductsAdapter(Context context, List<AllProductsResponse> productsResponses){
+    public ProductsAdapter(Context context, List<AllProductsResponse> allProductsResponse){
         this.context=context;
-        allProductsResponseList=productsResponses;
+        this.allProductsResponse=allProductsResponse;
+      //  this.listener= (SelectListener) listener;
     }
 
     @NonNull
@@ -38,27 +43,23 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.AllPro
     @Override
     public void onBindViewHolder(@NonNull AllProductsResponseViewHolder holder, int position) {
 
-        AllProductsResponse allProductsResponse=allProductsResponseList.get(position);
-        Picasso.get().load(allProductsResponse.getImage()).into(holder.image);
-        holder.title.setText(allProductsResponse.getTitle());
-        holder.category.setText(allProductsResponse.getCategory());
-        //holder.description.setText(allProductsResponse.getDescription());
+        Picasso.get().load(allProductsResponse.get(position).getImage()).into(holder.image);
+        holder.title.setText(allProductsResponse.get(position).getTitle());
+        holder.category.setText(allProductsResponse.get(position).getCategory());
+        //holder.description.setText(allProductsResponse.get(position).getDescription());
        // holder.price.setText(allProductsResponse.getPrice());
 
      holder.itemView.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
-           // AllProductsResponse allProductsResponse=allProductsResponseList.get(holder.getAdapterPosition());
-             Intent intent=new Intent(context, ProductDetails.class);
-             intent.putExtra("description", allProductsResponseList.get(holder.getAdapterPosition()));
-             context.startActivity(intent);
+             //listener.OnProductsClicked(allProductsResponse.get(holder.getAdapterPosition()));
          }
      });
     }
 
     @Override
     public int getItemCount() {
-        return allProductsResponseList.size();
+        return allProductsResponse.size();
     }
 
     public class AllProductsResponseViewHolder extends RecyclerView.ViewHolder{
