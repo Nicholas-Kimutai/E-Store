@@ -24,13 +24,12 @@ import retrofit2.Callback;
 public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.AllProductsResponseViewHolder> {
    private List<AllProductsResponse> allProductsResponse;
     Context context;
-    //private SelectListener listener;
 
 
     public ProductsAdapter(Context context, List<AllProductsResponse> allProductsResponse){
         this.context=context;
         this.allProductsResponse=allProductsResponse;
-      //  this.listener= (SelectListener) listener;
+
     }
 
     @NonNull
@@ -52,7 +51,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.AllPro
      holder.itemView.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
-             //listener.OnProductsClicked(allProductsResponse.get(holder.getAdapterPosition()));
+
          }
      });
     }
