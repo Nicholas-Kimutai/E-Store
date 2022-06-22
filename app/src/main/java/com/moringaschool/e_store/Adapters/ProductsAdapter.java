@@ -48,9 +48,9 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.AllPro
      holder.itemView.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
-            AllProductsResponse allProductsResponse=allProductsResponseList.get(holder.getAdapterPosition());
+           // AllProductsResponse allProductsResponse=allProductsResponseList.get(holder.getAdapterPosition());
              Intent intent=new Intent(context, ProductDetails.class);
-             //intent.putExtra("detail", allProductsResponse);
+             intent.putExtra("description", allProductsResponseList.get(holder.getAdapterPosition()));
              context.startActivity(intent);
          }
      });

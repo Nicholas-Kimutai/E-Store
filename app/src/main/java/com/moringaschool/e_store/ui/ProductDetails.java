@@ -31,19 +31,21 @@ AllProductsResponse allProductsResponse = null;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
 
-        final Object object = getIntent().getSerializableExtra("detail");
+
+        ButterKnife.bind(this);
+        final Object object = getIntent().getSerializableExtra("description");
         if (object instanceof AllProductsResponse){
             allProductsResponse=(AllProductsResponse) object;
 
         }
 
-        descriptionImage=findViewById(R.id.imageView2);
-        productname=findViewById(R.id.textView5);
+        //descriptionImage=findViewById(R.id.imageView2);
+        //productname=findViewById(R.id.textView5);
         producDescription=findViewById(R.id.textView2);
 
         if(allProductsResponse !=null){
-            Picasso.get().load(allProductsResponse.getImage()).into(descriptionImage);
-            productname.setText(allProductsResponse.getTitle());
+            //Picasso.get().load(allProductsResponse.getImage()).into(descriptionImage);
+            //productname.setText(allProductsResponse.getTitle());
            producDescription.setText(allProductsResponse.getDescription());
 
         }

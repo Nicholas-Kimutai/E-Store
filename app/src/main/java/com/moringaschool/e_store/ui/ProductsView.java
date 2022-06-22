@@ -1,13 +1,16 @@
 package com.moringaschool.e_store.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.SearchView;
@@ -33,12 +36,15 @@ public class ProductsView extends AppCompatActivity {
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
     List<AllProductsResponse> allProductsResponseList;
-
+    ProgressDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products_view);
 
+         dialog =new ProgressDialog(this);
+         dialog.setTitle("Loading Products...");
+         dialog.show();
 
         recyclerView=findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
@@ -57,6 +63,7 @@ public class ProductsView extends AppCompatActivity {
                 List<AllProductsResponse> allProductsResponseList=response.body();
                 ProductsAdapter productsAdapter=new ProductsAdapter(ProductsView.this, allProductsResponseList);
                 recyclerView.setAdapter(productsAdapter);
+                dialog.dismiss();
             }
 
             @Override
@@ -71,5 +78,25 @@ public class ProductsView extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.logoutmenu,menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.logout:
+                logoutUser();
+                break;
+
+            case R.id.deleteAccount:
+                deleteAccount();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void deleteAccount() {
+    }
+
+    private void logoutUser() {
     }
 }
