@@ -10,66 +10,38 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.moringaschool.e_store.ProductsViewHolder;
 import com.moringaschool.e_store.R;
-import com.moringaschool.e_store.SelectListener;
 import com.moringaschool.e_store.models.AllProductsResponse;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.AllProductsResponseViewHolder> {
+public class ProductsAdapter extends RecyclerView.Adapter<ProductsViewHolder> {
+private Context context;
+private List<AllProductsResponse> allProducts;
 
-    List<AllProductsResponse> allProductsResponseList;
-    Context context;
-    private SelectListener listener;
-    public ProductsAdapter(Context context,List<AllProductsResponse>productsResponses, SelectListener listener){
-        this.context=context;
-        allProductsResponseList=productsResponses;
-        this.listener=listener;
+    public ProductsAdapter(Context context, List<AllProductsResponse> allProducts) {
+        this.context = context;
+        this.allProducts = allProducts;
     }
-
 
     @NonNull
     @Override
-    public AllProductsResponseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.item,parent, false);
-        return new AllProductsResponseViewHolder(view);
+    public ProductsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new ProductsViewHolder(LayoutInflater.from(context).inflate(R.layout.item,parent,false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AllProductsResponseViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ProductsViewHolder holder, int position) {
 
-        AllProductsResponse allProductsResponse=allProductsResponseList.get(position);
-        Picasso.get().load(allProductsResponse.getImage()).into(holder.image);
-        holder.title.setText(allProductsResponse.getTitle());
-        holder.category.setText(allProductsResponse.getCategory());
-       // holder.rating.setText(allProductsResponse.getRating());
-       // holder.price.setText(allProductsResponse.getPrice());
-
-    holder.itemView.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            listener.OnProductsClicked(allProductsResponseList.get(position));
-        }
-    });
+        holder.title.setText(allProducts.get(position).getTitle());
+        holder.category.setText(allProducts.get(position).getCategory());
+        Picasso.get().load(allProducts.get(position).getImage()).into(holder.image);
     }
 
     @Override
     public int getItemCount() {
-        return allProductsResponseList.size();
-    }
-
-    public class AllProductsResponseViewHolder extends RecyclerView.ViewHolder{
-        ImageView image;
-        TextView title,category, rating, price;
-
-        public AllProductsResponseViewHolder(@NonNull View itemView) {
-            super(itemView);
-            image=itemView.findViewById(R.id.productImage);
-            title=itemView.findViewById(R.id.productName);
-            category=itemView.findViewById(R.id.productCategory);
-           //rating=itemView.findViewById(R.id.productRating);
-           //price=itemView.findViewById(R.id.productPrice);
-        }
+        return allProducts.size();
     }
 }
