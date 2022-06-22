@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.moringaschool.e_store.Adapters.ProductsAdapter;
 import com.moringaschool.e_store.R;
+import com.moringaschool.e_store.SelectListener;
 import com.moringaschool.e_store.models.AllProductsResponse;
 import com.moringaschool.e_store.models.Rating;
 import com.moringaschool.e_store.network.ApiClient;
@@ -21,7 +22,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProductsView extends AppCompatActivity {
+public class ProductsView extends AppCompatActivity implements SelectListener {
 
     List<AllProductsResponse> allProductsResponseList;
     private RecyclerView recyclerView;
@@ -46,7 +47,7 @@ public class ProductsView extends AppCompatActivity {
                     return;
                 }
                 List<AllProductsResponse> allProductsResponseList=response.body();
-                ProductsAdapter productsAdapter=new ProductsAdapter(ProductsView.this, allProductsResponseList);
+                ProductsAdapter productsAdapter=new ProductsAdapter(ProductsView.this,allProductsResponseList);
                 recyclerView.setAdapter(productsAdapter);
             }
 
@@ -58,6 +59,11 @@ public class ProductsView extends AppCompatActivity {
 
 
 
+
+    }
+
+    @Override
+    public void OnProductsClicked(AllProductsResponse allProductsResponseList) {
 
     }
 }

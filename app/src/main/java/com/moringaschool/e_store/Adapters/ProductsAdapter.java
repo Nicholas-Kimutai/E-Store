@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringaschool.e_store.R;
+import com.moringaschool.e_store.SelectListener;
 import com.moringaschool.e_store.models.AllProductsResponse;
 import com.squareup.picasso.Picasso;
 
@@ -20,10 +21,11 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.AllPro
 
     List<AllProductsResponse> allProductsResponseList;
     Context context;
-
-    public ProductsAdapter(Context context,List<AllProductsResponse>productsResponses){
+    private SelectListener listener;
+    public ProductsAdapter(Context context,List<AllProductsResponse>productsResponses, SelectListener listener){
         this.context=context;
         allProductsResponseList=productsResponses;
+        this.listener=listener;
     }
 
 
@@ -44,7 +46,12 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.AllPro
        // holder.rating.setText(allProductsResponse.getRating());
        // holder.price.setText(allProductsResponse.getPrice());
 
-
+    holder.itemView.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            listener.OnProductsClicked(allProductsResponseList.get(position));
+        }
+    });
     }
 
     @Override
