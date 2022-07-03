@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
-import android.widget.Button;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -20,8 +23,12 @@ TextView signup;
 @BindView(R.id.loginSelectButton)
 TextView login;
 ProgressBar progressbar;
+Animation top, bottom;
+ImageView imageView;
+TextView splashtitle, splashslogan, about;
 
-FirebaseAuth auth;
+private static int SPLASH_SCREEN=2500;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,9 +38,26 @@ FirebaseAuth auth;
         progressbar = findViewById(R.id.progressbar);
         progressbar.setVisibility(View.GONE);
 
+        imageView=findViewById(R.id.splashImage);
+        splashtitle=findViewById(R.id.logo);
+        splashslogan=findViewById(R.id.motto);
+        about=findViewById(R.id.about);
+
+     //Animations
+        top= AnimationUtils.loadAnimation(this, R.anim.top);
+        bottom=AnimationUtils.loadAnimation(this, R.anim.top);
+
+
+        splashtitle.setAnimation(top);
+        imageView.setAnimation(top);
+        splashslogan.setAnimation(top);
+        about.setAnimation(bottom);
+
+
+
         ButterKnife.bind(this);
 
-
+        //Sign-Up
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,6 +65,8 @@ FirebaseAuth auth;
                 startActivity(intent);
             }
         });
+
+        //Login
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,6 +74,9 @@ FirebaseAuth auth;
                 startActivity(intent);
             }
         });
+
+
+
 
 
     }

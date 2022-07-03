@@ -11,22 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-       <Button
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:id="@+id/logout"
-           android:textStyle="bold"
-           android:text="Log out"/>
-        <EditText
-            android:id="@+id/search_bar"
-            android:elevation="2dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:padding="13dp"
-            android:drawableLeft="@drawable/ic_baseline_search_24"
-            android:drawablePadding="5dp"
-            android:hint="Search Your product here..."/>
+
+
+<!--        <EditText-->
+<!--            android:id="@+id/search_bar"-->
+<!--            android:elevation="2dp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="8dp"-->
+<!--            android:padding="13dp"-->
+<!--            android:drawableLeft="@drawable/ic_baseline_search_24"-->
+<!--            android:drawablePadding="5dp"-->
+<!--            android:hint="Search Your product here..."/>-->
 
         <LinearLayout
             android:layout_marginLeft="10dp"
@@ -46,18 +42,6 @@
                 android:textColor="@color/purple_700"
                 android:textSize="16sp"
                 android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/view_all_products"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/poppins"
-                android:text="View All"
-                android:gravity="end"
-                android:textSize="18sp"
-                android:layout_marginRight="7dp"
-                android:textColor="@color/purple_700"
-                android:textStyle="bold"/>
 
 
         </LinearLayout>
@@ -66,6 +50,7 @@
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="@+id/search_bar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -48,12 +48,13 @@ public class Order extends AppCompatActivity implements View.OnClickListener {
                 Toast.makeText(getApplicationContext(), "Please fill all required fields", Toast.LENGTH_LONG).show();
             }
             else {
-                Intent intent = new Intent(Order.this, Order.class);
-                intent.putExtra("username", username);
-                intent.putExtra("Email", useremail);
-                intent.putExtra("location", userlocation);
-                intent.putExtra("PhoneNumber", phonenumber);
+                Intent intent = new Intent(Order.this, ProductsView.class);
+//                intent.putExtra("username", username);
+//                intent.putExtra("Email", useremail);
+//                intent.putExtra("location", userlocation);
+//                intent.putExtra("PhoneNumber", phonenumber);
                 Toast.makeText(getApplicationContext(),"Your order has been placed! We will contact you shortly",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Continue shopping with us!", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         }

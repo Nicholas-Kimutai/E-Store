@@ -22,25 +22,36 @@ ImageView backArrow;
 @BindView(R.id.orderButton)
 Button orderButton;
 
-ImageView descriptionImage;
-TextView producDescription,productname;
-AllProductsResponse allProductsResponse = null;
+    ImageView descriptionImage;
+    TextView producDescription,productname, productCategory;
+    AllProductsResponse allProductsResponse = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
 
-        ButterKnife.bind(this);
+
+
+        final Object object=getIntent().getSerializableExtra("detail");
+        if(object instanceof AllProductsResponse){
+            allProductsResponse= (AllProductsResponse) object;
+        }
+
         descriptionImage=findViewById(R.id.imageView2);
-        productname=findViewById(R.id.textView5);
-        producDescription=findViewById(R.id.textView2);
+        productCategory=findViewById(R.id.productName);
+        productname=findViewById(R.id.textView3);
+        producDescription=findViewById(R.id.textView5);
 
-        allProductsResponse=(AllProductsResponse) getIntent().getSerializableExtra("data");
 
-        Picasso.get().load(allProductsResponse.getImage()).into(descriptionImage);
-        productname.setText(allProductsResponse.getTitle());
-        producDescription.setText(allProductsResponse.getDescription());
+        if(allProductsResponse !=null){
+            Picasso.get().load(allProductsResponse.getImage()).into(descriptionImage);
+            productname.setText(allProductsResponse.getTitle());
+            producDescription.setText(allProductsResponse.getDescription());
+            productCategory.setText(allProductsResponse.getCategory());
+
+
+        }
 
 
         ButterKnife.bind(this);
@@ -58,5 +69,4 @@ AllProductsResponse allProductsResponse = null;
             startActivity(intent);
         }
     }
-
 }
